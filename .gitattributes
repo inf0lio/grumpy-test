@@ -1,1 +1,1 @@
-.stack/ linguist-language=Java
+*.clj linguist-language=Java
