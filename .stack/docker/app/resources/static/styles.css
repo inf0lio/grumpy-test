@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  line-height: 140%;
+  padding: 0.25em 1em;
+  max-width: 652px; /* .post_img =>> 550px */
+  margin: 0 auto;
+}
+
+
+/* HEADER */
+
+header { margin-bottom: 2em; }
+
+.title { margin-bottom: 0; }
+.title_back { position: absolute; margin-left: -1em; text-decoration: none; }
+.title_back:hover { text-decoration: underline; }
+
+.title_new { padding: 10px; margin: -10px 0 0 0; float: right; text-decoration: none; color: #c3c; }
+.title_new:hover { color: #d4d; }
+body.anonymous .title_new { display: none; }
+
+.subtitle { margin-left: 0.09em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+.subtitle > span { cursor: pointer; }
+
+
+/* POST */
+
+.post { display: flex; justify-content: flex-start; margin-bottom: 2em; }
+.post_side { margin-right: 20px; min-width: 50px; }
+@media (max-width: 399px) {
+  .post_side { display: none; }
+}
+.post_avatar { width: 50px; height: 50px; }
+
+.post_img { display: block; margin-bottom: 1em; }
+.post_img-fix { display: block; background-size: 100%; position: relative; }
+.post_img-fix > img { position: absolute; height: 100%; }
+.post_video,
+.post_img-flex > img { display: block; max-width: 100%; height: auto; max-height: 500px; }
+.post_author { font-weight: bold; }
+.post_content { width: 100%; }
+.post_body > p { margin: 0 0 1em 0; }
+
+.post_meta_edit { float: right; color: #c3c; }
+.post_meta_edit:hover { color: #d4d; }
+body.anonymous .post_meta_edit { display: none; }
+
+
+/* FOOTER */
+@keyframes rotating {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loader { margin: 0 0 3em 0; text-align: center; }
+.loader > img { width: 76px; height: 76px; border: 2px solid #000; border-radius: 50%; }
+.loader-loading > img { animation: rotating 1s ease-in-out infinite; }
+.loader-error > img { cursor: pointer; border-color: red; }
+.loader-error > img:hover { position: relative; top: -1px; }
+
+footer {
+  padding: 1em 0 1em;
+  margin-top: 2em;
+  border-top: 1px solid #000;
+}

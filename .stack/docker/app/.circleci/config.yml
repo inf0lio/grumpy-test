@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+      
+    working_directory: ~/repo
+
+    environment:
+      LEIN_ROOT: "true"
+      JVM_OPTS: -Xmx3200m
+
+    
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "project.clj" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: lein deps
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "project.clj" }}
+        
+      - run: lein package
+
+      - add_ssh_keys:
+          fingerprints:
+            - "f5:56:00:dd:2e:a6:6d:14:d8:8a:89:83:9f:c0:49:6a"
+
+      - deploy:
+          name: deploy to hosting
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan -H grumpy.website >> ~/.ssh/known_hosts
+              scp target/grumpy.jar grumpy@grumpy.website:
+              ssh grumpy@grumpy.website /home/grumpy/restart.sh
+            fi

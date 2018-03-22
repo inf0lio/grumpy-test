@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+    application:
+      build:
+        context: ./app
+      network_mode: bridge
+      ports:
+        - "8080:8080"
+
+    selenoid:
+      image: aerokube/selenoid
+      network_mode: bridge
+      ports:
+        - "4444:4444"
+      links:
+        - application
+      volumes:
+        - ./selenoid/config/:/etc/selenoid/
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./selenoid/data/:/tmp/
+      environment:
+        - DOCKER_API_VERSION=1.35
+
+    selenoid-ui:
+      image: aerokube/selenoid-ui
+      network_mode: bridge
+      links:
+        - selenoid
+      ports:
+        - "8081:8081"
+      command: --selenoid-uri http://selenoid:4444 --listen 0.0.0.0:8081
+
+
