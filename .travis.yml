@@ -1,7 +1,3 @@
-stages:
-  - build
-  - test
-
 language: java
 
 sudo: required
@@ -9,26 +5,12 @@ sudo: required
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.12.0
-
 before_script:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+  - docker pull selenoid/vnc:firefox_58.0
+  - docker pull selenoid/vnc:firefox_57.0
+  - docker pull selenoid/vnc:chrome_65.0
+  - docker pull selenoid/vnc:chrome_64.0
 
-jobs:
-  include:
-    - stage: build
-      script:
-        - docker-compose -f .stack/docker/docker-compose.yml up -d --build --force-recreate
-    - stage: test
-      before_script:
-        - docker pull selenoid/vnc:firefox_58.0
-        - docker pull selenoid/vnc:firefox_57.0
-        - docker pull selenoid/vnc:chrome_65.0
-        - docker pull selenoid/vnc:chrome_64.0
-      script:
-        - mvn clean -Dtest=GrumpyTest test
-
+script:
+  - docker-compose -f .stack/docker/docker-compose.yml up -d --build --force-recreate
+  - mvn clean -Dtest=GrumpyTest test
