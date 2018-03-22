@@ -13,13 +13,17 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker-compose -f .stack/docker/docker-compose.yml up -d --build --force-recreate
-  - docker pull selenoid/vnc:firefox_58.0
-  - docker pull selenoid/vnc:firefox_57.0
-  - docker pull selenoid/vnc:chrome_65.0
-  - docker pull selenoid/vnc:chrome_64.0
-  - docker ps
 
+
+before_script:
+    - docker pull selenoid/vnc:firefox_58.0
+    - docker pull selenoid/vnc:firefox_57.0
+    - docker pull selenoid/vnc:chrome_65.0
+    - docker pull selenoid/vnc:chrome_64.0
+    - docker-compose -f .stack/docker/docker-compose.yml up -d --build --force-recreate
+
+script:
+    - mvn clean -Dtest=GrumpyTest test
 
 #addons:
 #  apt:
