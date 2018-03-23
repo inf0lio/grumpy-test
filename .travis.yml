@@ -7,7 +7,7 @@ services:
 
 before_script:
   - docker pull selenoid/vnc:chrome_65.0
-  - docker pull selenoid/vnc:firefox_57.0
+  - docker pull selenoid/vnc:firefox_58.0
   - docker pull selenoid/vnc:opera_51.0
 
 script:
