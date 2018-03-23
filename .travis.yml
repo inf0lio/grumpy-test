@@ -13,4 +13,4 @@ before_script:
 
 script:
   - docker-compose -f .stack/docker/docker-compose.yml up -d --build --force-recreate
-  - mvn clean -Dtest=GrumpyTest test
+  - mvn clean test -Pe2e

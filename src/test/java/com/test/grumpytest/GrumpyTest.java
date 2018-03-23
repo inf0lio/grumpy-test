@@ -3,11 +3,13 @@ package com.test.grumpytest;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import com.test.grumpytest.categories.EndToEnd;
 import com.test.grumpytest.configs.BaseTest;
 import com.test.grumpytest.pages.MainPage;
 import com.test.grumpytest.pages.DraftPage;
 import com.test.grumpytest.widgets.Post;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -23,6 +25,7 @@ public class GrumpyTest extends BaseTest {
     private Faker faker = new Faker();
 
     @Test
+    @Category(EndToEnd.class)
     public void createReadUpdatePost() {
         GIVEN("Open the app and login");
         MainPage mainPage = new MainPage();
