@@ -1,4 +1,5 @@
 package com.test.core;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +13,8 @@ public class Parallelized extends Parameterized {
         private ExecutorService executor;
 
         public ThreadPoolScheduler() {
-            String threads = System.getProperty("junit.parallel.threads", "16");
+            Properties properties = Helpers.getProperties();
+            String threads = System.getProperty("junit.parallel.threads", properties.getProperty("parallel.threads"));
             int numThreads = Integer.parseInt(threads);
             executor = Executors.newFixedThreadPool(numThreads);
         }

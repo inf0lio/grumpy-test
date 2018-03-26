@@ -2,7 +2,6 @@ package com.test.grumpytest.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.test.grumpytest.widgets.Posts;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.CollectionCondition.exactTexts;
@@ -12,7 +11,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class MainPage {
 
     private SelenideElement newPost = $(".title_new");
-
 
     @Step
     public MainPage open() {

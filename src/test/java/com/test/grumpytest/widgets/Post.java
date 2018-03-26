@@ -1,10 +1,8 @@
 package com.test.grumpytest.widgets;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.test.grumpytest.pages.DraftPage;
-import com.test.grumpytest.pages.MainPage;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;

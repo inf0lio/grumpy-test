@@ -1,7 +1,5 @@
 package com.test.grumpytest;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import com.test.grumpytest.categories.EndToEnd;
 import com.test.grumpytest.configs.BaseTest;
@@ -10,10 +8,7 @@ import com.test.grumpytest.pages.DraftPage;
 import com.test.grumpytest.widgets.Post;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static com.test.core.Gherkin.*;
 
 public class GrumpyTest extends BaseTest {
@@ -34,7 +29,7 @@ public class GrumpyTest extends BaseTest {
         GIVEN("Page to creation of post");
         DraftPage draft = mainPage.create();
 
-        String text_1 = '"' + faker.paragraph() + '"' + " - " + faker.name();
+        String text_1 = '"' + faker.sentence() + '"' + " - " + faker.name();
         String user_1 = "igrishaev";
 
         AND("Create a new post");
@@ -48,7 +43,7 @@ public class GrumpyTest extends BaseTest {
             .assertText(text_1)
             .assertAuthor(user_1);
 
-        String text_2 = '"' + faker.paragraph() + '"' + " - " + faker.name();
+        String text_2 = '"' + faker.sentence() + '"' + " - " + faker.name();
         String user_2 = "freetonik";
 
         THEN("Edit the post");
