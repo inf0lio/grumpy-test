@@ -64,6 +64,9 @@
                         </property>
                     </properties>
                     <groups>${test.includeCategories}</groups>
+                    <excludes>
+                        <exclude>com.test.grumpytest.configs.BaseTest</exclude>
+                    </excludes>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -80,6 +83,12 @@
             <id>e2e</id>
             <properties>
                <test.includeCategories>com.test.grumpytest.categories.EndToEnd</test.includeCategories>
+            </properties>
+        </profile>
+        <profile>
+            <id>acceptance</id>
+            <properties>
+                <test.includeCategories>com.test.grumpytest.categories.Acceptance</test.includeCategories>
             </properties>
         </profile>
     </profiles>

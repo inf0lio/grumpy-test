@@ -18,7 +18,7 @@ public class DraftPage extends AcceptanceHelper {
     }
 
     @Step
-    public DraftPage image(String imageName) {
+    public DraftPage file(String imageName) {
         Properties properties = Helpers.getProperties();
         uploadFileToRemoteHost(this.container().find(".edit-post_file"),
                 properties.getProperty("files.path") + imageName);
@@ -45,5 +45,12 @@ public class DraftPage extends AcceptanceHelper {
         this.container().find(".edit-post_submit").click();
 
         return new Posts().getPost(0);
+    }
+
+    @Step
+    public Posts cancel() {
+        this.container().find(".edit-post_cancel").click();
+
+        return new Posts();
     }
 }

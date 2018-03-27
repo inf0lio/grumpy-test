@@ -31,6 +31,16 @@ public class Post {
         return this;
     }
 
+    public Post assertVideo(boolean exists) {
+        if (exists) {
+            this.container().find(".post_video").shouldBe(exist);
+        } else if (!exists) {
+            this.container().find(".post_video").shouldNotBe(exist);
+        }
+
+        return this;
+    }
+
     @Step
     public Post assertText(String postText) {
         this.container().find(".post_body>p").shouldHave(text(postText));
@@ -51,4 +61,5 @@ public class Post {
 
         return new DraftPage();
     }
+
 }

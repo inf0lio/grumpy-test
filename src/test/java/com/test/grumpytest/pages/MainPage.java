@@ -35,10 +35,4 @@ public class MainPage {
 
         return new DraftPage();
     }
-
-
-
-
-
-
 }

@@ -1,6 +1,7 @@
 package com.test.grumpytest;
 
 import com.github.javafaker.Faker;
+import com.test.grumpytest.categories.Acceptance;
 import com.test.grumpytest.categories.EndToEnd;
 import com.test.grumpytest.configs.BaseTest;
 import com.test.grumpytest.pages.MainPage;
@@ -47,7 +48,7 @@ public class GrumpyTest extends BaseTest {
 
         THEN("Edit the post");
         post.edit()
-            .image("pic_1.jpeg")
+            .file("pic_1.jpeg")
             .text(text_2)
             .author(user_2)
             .confirm();
@@ -56,5 +57,15 @@ public class GrumpyTest extends BaseTest {
         post.assertImage(true)
                 .assertText(text_2)
                 .assertAuthor(user_2);
+    }
+
+    @Test
+    @Category(Acceptance.class)
+    public void addVideoToPost() {
+        MainPage mainPage = new MainPage().open().login();
+        DraftPage draft = mainPage.create();
+        Post post = draft.file("video_1.mp4").confirm();
+
+        post.assertVideo(true);
     }
 }
