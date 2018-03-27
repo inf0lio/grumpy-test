@@ -27,15 +27,15 @@ docker pull selenoid/vnc:opera_51.0
 ```
 
 ### Running the tests
-Execute the all tests:
+Execute all tests:
 ```
 mvn clean test
 ```
-Only the end-to-end tests:
+Only end-to-end tests:
 ```
 mvn clean test -Pe2e
 ```
-Or only the acceptance tests:
+Or only acceptance tests:
 ```
 mvn clean test -Pacceptance
 ```
