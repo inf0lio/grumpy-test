@@ -21,7 +21,7 @@ public class DraftPage extends AcceptanceHelper {
     public DraftPage image(String imageName) {
         Properties properties = Helpers.getProperties();
         uploadFileToRemoteHost(this.container().find(".edit-post_file"),
-                properties.getProperty("files.folder") + imageName);
+                properties.getProperty("files.path") + imageName);
 
         return this;
     }

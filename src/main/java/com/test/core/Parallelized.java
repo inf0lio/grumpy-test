@@ -14,7 +14,7 @@ public class Parallelized extends Parameterized {
 
         public ThreadPoolScheduler() {
             Properties properties = Helpers.getProperties();
-            String threads = System.getProperty("junit.parallel.threads", properties.getProperty("parallel.threads"));
+            String threads = System.getProperty("junit.parallel.threads", properties.getProperty("test.threads"));
             int numThreads = Integer.parseInt(threads);
             executor = Executors.newFixedThreadPool(numThreads);
         }

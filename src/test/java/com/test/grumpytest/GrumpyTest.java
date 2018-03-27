@@ -37,7 +37,6 @@ public class GrumpyTest extends BaseTest {
                          .author(user_1)
                          .confirm();
 
-
         EXPECT("The post created");
         post.assertImage(false)
             .assertText(text_1)
