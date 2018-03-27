@@ -29,7 +29,7 @@ services:
       links:
         - selenoid
       ports:
-        - "8081:8081"
+        - "8181:8181"
       command: --selenoid-uri http://selenoid:4444 --listen 0.0.0.0:8181
 
 
