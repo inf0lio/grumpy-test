@@ -4,10 +4,6 @@
 [Grumpy](https://github.com/tonsky/grumpy) is simple blog engine with minimal functionality which is written on Clojure.
 Using UI you can only create and update post. Maybe soon we'll see more functionality but now that's all.
 
-### Built With
-* Selenide - The web framework used
-* Selenoid - Dependency Management
-* Allure - Used to generate RSS Feeds
 
 ## Getting Started
 ### Build the application
@@ -29,9 +25,9 @@ docker pull selenoid/vnc:opera_51.0
 ### Running the tests
 Execute the all tests:
 ```
-mvn clean test -Pall
+mvn clean test
 ```
-Only the end-to-end test:
+Only the end-to-end tests:
 ```
 mvn clean test -Pe2e
 ```
