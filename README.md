@@ -1,9 +1,9 @@
 # Grumpy Test
-[Grumpy](https://github.com/tonsky/grumpy) is simple blog engine with minimal functionality which is written on Clojure.
+[Grumpy](https://github.com/tonsky/grumpy) is simple blog engine with minimal functionality.
 
 [![Build Status](https://travis-ci.org/inf0lio/grumpy-test.svg?branch=master)](https://travis-ci.org/inf0lio/grumpy-test)
 
-Tests was written on Java using jUnit and [Selenide](https://github.com/codeborne/selenide) as the framework powered by Selenium WebDriver.
+Tests is written on Java using jUnit and [Selenide](https://github.com/codeborne/selenide) as the framework powered by Selenium WebDriver.
 They run in parallel in different browsers using [Selenoid](https://github.com/aerokube/selenoid) as implementation of Selenium hub.
 As status page is used [Selenoid UI](https://github.com/aerokube/selenoid-ui) as user interface for Selenoid.
 For reports is used the [Allure](https://github.com/allure-framework/allure2).
