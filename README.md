@@ -51,7 +51,7 @@ allure generate
 allure open
 ```
 
-## Configuration
+## Configurations
 ### Browsers
 In order to add and work with some specific browser you need:
 
@@ -91,8 +91,18 @@ docker pull selenoid/vnc:chrome_63.0
         return env;
     }
 ```
-
-
+### Properties
+***config.properties***:
+```java
+app.url=http://172.17.0.2:8080
+grid.url=http://localhost:4444/wd/hub
+retries.times=1
+test.threads=4
+files.path=src/test/resources/files/
+```
+* `retries.times` - The number of retries of tests that failed.
+* `test.threads` - The number of threads to use when running tests in parallel.
+* `files.path` - Path to the directory which contains data set for tests.
 
 
 
