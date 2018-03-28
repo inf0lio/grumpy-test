@@ -66,8 +66,8 @@ docker pull selenoid/vnc:chrome_63.0
     "default": "65.0",
     "versions": {
       "65.0": {
-        ...,
-        ...
+        "image": "selenoid/vnc:chrome_65.0",
+        "port": "4444"
       },
       "63.0": {
         "image": "selenoid/vnc:chrome_63.0",
