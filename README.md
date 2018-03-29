@@ -51,7 +51,7 @@ allure generate
 allure open
 ```
 
-## Configurations
+## Configuration
 ### Browsers
 In order to add and work with some specific browser you need:
 
@@ -103,6 +103,8 @@ files.path=src/test/resources/files/
 * `retries.times` - The number of retries of tests that failed.
 * `test.threads` - The number of threads to use when running tests in parallel.
 * `files.path` - Path to the directory which contains data set for tests.
+
+
 
 
 
