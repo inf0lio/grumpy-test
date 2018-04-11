@@ -1,10 +1,10 @@
-package com.test.grumpytest.pages;
+package com.test.grumpytest.mode.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.test.core.Helpers;
-import com.test.grumpytest.heplers.AcceptanceHelper;
-import com.test.grumpytest.widgets.Post;
-import com.test.grumpytest.widgets.Posts;
+import com.test.core.AcceptanceHelper;
+import com.test.grumpytest.mode.widgets.Post;
+import com.test.grumpytest.mode.widgets.Posts;
 import io.qameta.allure.Step;
 
 import java.util.Properties;
@@ -44,7 +44,7 @@ public class DraftPage extends AcceptanceHelper {
     public Post confirm() {
         this.container().find(".edit-post_submit").click();
 
-        return new Posts().getPost(0);
+        return new Posts().get(0);
     }
 
     @Step

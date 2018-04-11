@@ -1,4 +1,4 @@
-package com.test.grumpytest.pages;
+package com.test.grumpytest.mode.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -14,7 +14,7 @@ public class MainPage {
     @Step
     public MainPage open() {
         Selenide.open("/");
-        this.newPost.shouldNotHave(visible);
+        this.newPost.shouldNotBe(visible);
 
         return this;
     }
@@ -23,7 +23,7 @@ public class MainPage {
     public MainPage login() {
         Selenide.open("/new");
         Selenide.open("/");
-        this.newPost.shouldHave(visible);
+        this.newPost.shouldBe(visible);
 
         return this;
     }

@@ -4,9 +4,9 @@ import com.github.javafaker.Faker;
 import com.test.grumpytest.categories.Acceptance;
 import com.test.grumpytest.categories.EndToEnd;
 import com.test.grumpytest.configs.BaseTest;
-import com.test.grumpytest.pages.MainPage;
-import com.test.grumpytest.pages.DraftPage;
-import com.test.grumpytest.widgets.Post;
+import com.test.grumpytest.mode.pages.MainPage;
+import com.test.grumpytest.mode.pages.DraftPage;
+import com.test.grumpytest.mode.widgets.Post;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 

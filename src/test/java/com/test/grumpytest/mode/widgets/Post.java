@@ -1,8 +1,8 @@
-package com.test.grumpytest.widgets;
+package com.test.grumpytest.mode.widgets;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.test.grumpytest.pages.DraftPage;
+import com.test.grumpytest.mode.pages.DraftPage;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
@@ -22,21 +22,14 @@ public class Post {
 
     @Step
     public Post assertImage(boolean exists) {
-        if (exists) {
-            this.container().find(".post_img").shouldBe(exist);
-        } else if (!exists) {
-            this.container().find(".post_img").shouldNotBe(exist);
-        }
+        this.container().find(".post_img").should(exists? exist : not(exist));
 
         return this;
     }
 
+    @Step
     public Post assertVideo(boolean exists) {
-        if (exists) {
-            this.container().find(".post_video").shouldBe(exist);
-        } else if (!exists) {
-            this.container().find(".post_video").shouldNotBe(exist);
-        }
+        this.container().find(".post_video").should(exists? exist : not(exist));
 
         return this;
     }
