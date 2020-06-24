@@ -33,7 +33,7 @@ public class GrumpyTest extends BaseTest {
         String text_1 = '"' + faker.sentence() + '"' + " - " + faker.name();
         String user_1 = "igrishaev";
 
-        AND("Create a new post");
+        AND("Create a new post for Vlad");
         Post post = draft.text(text_1)
                          .author(user_1)
                          .confirm();
